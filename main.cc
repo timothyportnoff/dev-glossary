@@ -3,7 +3,6 @@
 #include <cstdlib>
 #include <string>
 #include <vector>
-using namespace std;
 using std::string;
 
 class Flashcard {
@@ -45,14 +44,14 @@ std::vector<Flashcard> make_flashcards() {
 
 std::vector<Flashcard> load_glossary(string file_name) {
 	std::vector<Flashcard> glossary;
-	fstream file(file_name);
+	std::fstream file(file_name);
 	if (!file) die("Couldn't grab file to load glossary.");
 	string front, back;
 	while (file) {
 		getline(file, front, ':');
-		cout << front << endl;
+		std::cout << front << std::endl;
 		getline(file, back, '\n');
-		cout << back << endl;
+		std::cout << back << std::endl;
 		Flashcard card(front, back);
 		glossary.push_back(card);
 	}
@@ -79,19 +78,22 @@ int main(int argc, char* argv[]) {
 			std::cout << "3) Create Glossary" << std::endl;
 			std::cout << "4) Do something else???" << std::endl;
 			std::cout << "0) Exit Program." << std::endl;
-			cin >> choice;
+			std::cin >> choice;
 			switch (choice) {
+				case 0: 
+					return 0;
+					break;
 				case 1: 
 					study_glossary(glossary);
 					break;
 				case 2: 
 					std::cout << "Enter the name of the file you would like to open." << std::endl;
-					cin >> file_name;
+					std::cin >> file_name;
 					glossary = load_glossary(file_name);
 					break;
 				case 3: 
 					std::cout << "Enter the name of the file you would like to create." << std::endl;
-					cin >> file_name;
+					std::cin >> file_name;
 					break;
 				case 4: 
 					std::cout << "There is nothing else to do. Go study." << std::endl;
