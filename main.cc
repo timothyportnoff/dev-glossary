@@ -58,8 +58,6 @@ int main(int argc, char* argv[]) {
 		glossary = load_glossary(argv[1]);
 	}
 	if (argc == 1) {
-		/* int argument_to_integer = std::atoi(argv[1]); //Will convert a string to 0 */
-		/* std::cout << "Argument: " << argument_to_integer << std::endl; */
 		std::cout << "Welcome to Dev-Glossary." << std::endl;
 		while(choice != 0) {
 			std::cout << "What would you like to do?" << std::endl;
