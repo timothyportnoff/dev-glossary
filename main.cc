@@ -3,18 +3,8 @@
 #include <cstdlib>
 #include <string>
 #include <vector>
+#include "flashcard.cc"
 using std::string;
-
-class Flashcard {
-	private:
-		std::string front;
-		std::string back;
-	public:
-		Flashcard(std::string front, std::string back) {
-			this->front = front;
-			this->back = back;
-		}
-};
 
 void strip_leading_space(std::string& str){ str.erase(0, str.find_first_not_of(' ')); }
 
